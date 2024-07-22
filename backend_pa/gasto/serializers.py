@@ -1,3 +1,4 @@
+from categories.serializers import CategorySerializer
 from rest_framework import serializers
 
 from item.serializers import ItemSerializer
@@ -17,8 +18,13 @@ class GastoSerializer(serializers.ModelSerializer):
         user_serializer = UserSerializer(user_instance)
         representation["user"] = user_serializer.data
 
-        items_instances = instance.items.all()
-        items_serializer = ItemSerializer(items_instances, many=True)
-        representation["items"] = items_serializer.data
+        Category_instance = instance.category
+        Category_serializer = CategorySerializer(Category_instance)
+        representation["category"] = Category_serializer.data
+
+        
+        # items_instances = instance.items.all()
+        # items_serializer = ItemSerializer(items_instances, many=True)
+        # representation["items"] = items_serializer.data
 
         return representation

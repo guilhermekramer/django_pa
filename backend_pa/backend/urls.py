@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from categories.views import CategoryViewSet
 from rest_framework import routers
 
 
@@ -28,6 +29,7 @@ router = routers.DefaultRouter()
 router.register("user", UserViewSet)
 router.register("gasto", GastoViewSet)
 router.register("item", ItemViewSet)
+router.register("category", CategoryViewSet)
 
 
 urlpatterns = [path("admin/", admin.site.urls), path("", include(router.urls))]

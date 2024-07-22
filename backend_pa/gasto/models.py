@@ -1,5 +1,5 @@
 from django.db import models
-from item.models import Item
+from categories.models import Category
 from user.models import User
 
 
@@ -10,4 +10,4 @@ class Gasto(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name="gastos", on_delete=models.CASCADE)
-    items = models.ManyToManyField(Item, related_name="gastos")
+    category = models.ForeignKey(Category, related_name="gastos", on_delete=models.CASCADE, default=None)

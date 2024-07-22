@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "gasto",
     "user",
     "item",
+    "categories",
 ]
 
 MIDDLEWARE = [

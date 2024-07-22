@@ -13,6 +13,14 @@ class ItemSerializer(serializers.ModelSerializer):
             description=validated_data["description"],
             price=validated_data["price"],
             quantity=validated_data["quantity"],
-            category=validated_data["category"],
         )
         return item
+    
+
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     items_instance = instance.items
+    #     items_serializer = ItemSerializer(items_instance, many=True)
+    #     representation['item'] = items_serializer.data
+
+    #     return representation
