@@ -1,4 +1,4 @@
-#!/home/guidao/Documentos/Estudos/pa/venv/bin/python3
+#!/home/kramer/Documentos/Estudos/trabalho/django_pa/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
