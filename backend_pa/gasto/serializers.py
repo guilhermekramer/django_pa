@@ -1,7 +1,6 @@
 from categories.serializers import CategorySerializer
 from rest_framework import serializers
 
-from item.serializers import ItemSerializer
 from user.serializers import UserSerializer
 from .models import Gasto
 

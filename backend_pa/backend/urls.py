@@ -19,17 +19,21 @@ from django.contrib import admin
 from django.urls import include, path
 from categories.views import CategoryViewSet
 from rest_framework import routers
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 
 from gasto.views import GastoViewSet
-from item.views import ItemViewSet
 from user.views import UserViewSet
 
 router = routers.DefaultRouter()
 router.register("user", UserViewSet)
 router.register("gasto", GastoViewSet)
-router.register("item", ItemViewSet)
 router.register("category", CategoryViewSet)
 
 
-urlpatterns = [path("admin/", admin.site.urls), path("", include(router.urls))]
+urlpatterns = [
+    path("admin/", admin.site.urls), 
+    path("", include(router.urls)),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),]
